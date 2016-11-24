@@ -1,0 +1,49 @@
+{
+  "name": "biojs-vis-mds",
+  "description": "A multi-dimensional scaling (MDS) visualisation",
+  "version": "0.1.0",
+  "homepage": "https://github.com/yoshw/biojs-vis-mds",
+  "author": {
+    "name": "Yoshua Wakeham",
+    "email": "wakeham.y@wehi.edu.au"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yoshw/biojs-vis-mds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yoshw/biojs-vis-mds/issues"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+		"test": "echo 'Error: no test specified' && exit 1",
+		"build": "mkdirp build && browserify -r ./:biojs-vis-mds -o build/mds.js",
+		"build-browser": "npm run build",
+		"prepublish": "npm run build",
+		"watch": "watchify -r ./:biojs-vis-mds -v -o build/mds.js",
+		"lint": "jshint -c .jshintrc lib --verbose",
+		"w": "prunner \"npm run sniper\" \"npm run watch\" \"npm run watch-css\"",
+		"sniper": "sniper .",
+		"install": "undefined && npm run css",
+		"css": "parcelify ./ -c build/bundle.css",
+		"watch-css": "parcelify -w ./ -c build/bundle.css --loglevel verbose"
+  },
+  "dependencies": {},
+  "devDependencies": {
+		"mkdirp": "^0.5.0",
+		"browserify": "6.x",
+		"sniper": "0.x",
+		"watchify": "^1.0.6",
+		"prunner": "1.x",
+		"parcelify": "0.x",
+		"jshint": "^2.5.10"
+  }, 
+  "sniper": {
+    "js": [ "/build/mds.js"],
+    "css": ["/build/bundle.css"], 
+    "snippets": ["examples"],
+    "first": "simple"
+   }, 
+  "keywords": ["biojs","visualisation","mds","biology","research","biojs"]
+}
