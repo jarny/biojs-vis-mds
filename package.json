@@ -41,9 +41,9 @@
   }, 
   "sniper": {
     "js": [ "/build/mds.js"],
-    "css": ["/build/bundle.css"], 
+    "css": ["/css/main.css"], 
     "snippets": ["examples"],
     "first": "simple"
    }, 
-  "keywords": ["biojs","visualisation","mds","biology","research","biojs"]
+  "keywords": ["visualisation","mds","biology","research","biojs"]
 }
