@@ -26,5 +26,7 @@ for (var i=0; i < names.length; i++) {
 mdsvis.run({
   el: rootDiv,
   coords: points,
-  metadata: metadata
+  metadata: metadata,
+  width: 900,
+  height: 600
 });
