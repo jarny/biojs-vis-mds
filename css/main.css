@@ -10,12 +10,7 @@
  * @see: https://github.com/rotundasoftware/parcelify
  */
 
-/* body div:first-child{ */
-/*     background-color: grey; */
-/* } */
-/* body div:first-child:after{ */
-/*     content: "You can modify the style in the css folder"; */
-/*      white-space:pre; */
-/*      background-color: #fff; */
-/*      display: block; */
-/* } */
+.mdsvis-menubar-section {
+    width: 30%;
+    display: inline-block;
+}
