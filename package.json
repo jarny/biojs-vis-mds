@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "plotly.js": ">=1.20.5",
-    "underscore": ">=1.8.3"
+    "underscore": ">=1.8.3",
+    "biojs-algo-mds": "file:../biojs-algo-mds"
   },
   "devDependencies": {
 		"mkdirp": "^0.5.0",
