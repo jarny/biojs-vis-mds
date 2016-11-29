@@ -11,6 +11,28 @@
  */
 
 .mdsvis-menubar-section {
-    width: 30%;
+    width: 33%;
+    display: inline-block;
+}
+
+#mdsvis-menubar-left {
+    text-align: left;
+}
+#mdsvis-menubar-centre {
+    text-align: center;
+}
+#mdsvis-menubar-right {
+    text-align: right;
+}
+
+.mdsvis-menubar-control-container {
+    display: inline-block;
+}
+
+.mdsvis-menubar-label {
+    display: inline-block;
+}
+
+.mdsvis-menubar-control {
     display: inline-block;
 }
