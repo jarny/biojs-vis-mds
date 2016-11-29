@@ -8,8 +8,22 @@ var metadata = [ {celltype: 'B2', tissue: 'BM'},
                  {celltype: 'Mac', tissue: 'BM'},
                  {celltype: 'B2', tissue: 'LN'},
                  {celltype: 'Mac', tissue: 'LN'} ];
+
+var onHover = function(data) {
+  var groupNum = data.points[0].curveNumber;
+  mdsvis.highlightGroup(groupNum);
+  console.log("hovering!");
+};
+var onClick = function(data) {
+  alert("Clicked!");
+  console.log(data);
+};
+
 mdsvis.run({
   el: rootDiv,
   coords: points,
-  metadata: metadata
+  metadata: metadata,
+  width: 1000,
+  onHover: onHover,
+  onClick: onClick
 });
