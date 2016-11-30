@@ -1,5 +1,6 @@
 // if you don't specify a html file, the sniper will generate a div with id "rootDiv"
-var mdsvis = require('biojs-vis-mds');
+// const mds = require('biojs-algo-mds');
+const mdsvis = require('biojs-vis-mds');
 
 var cityDists = [
   [0, 587, 1212, 701, 1936, 604, 748, 2139, 2182, 543],
@@ -23,8 +24,7 @@ for (var i=0; i < names.length; i++) {
   metadata.push({name: names[i]});
 }
 
-mdsvis.run({
-  el: rootDiv,
+var vis = mdsvis.create(rootDiv, {
   coords: points,
   metadata: metadata,
   layout: {
@@ -36,3 +36,5 @@ mdsvis.run({
     marker: {size: 20}
   }
 });
+
+vis.draw();

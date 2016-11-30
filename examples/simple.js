@@ -11,21 +11,27 @@ var metadata = [ {celltype: 'B2', tissue: 'BM'},
 
 var onHover = function(data) {
   var groupNum = data.points[0].curveNumber;
-  mdsvis.highlightGroup(groupNum);
+  mdsvis.highlightGroup(rootDiv, groupNum);
   console.log("hovering!");
+};
+var onUnhover = function(data) {
+  mdsvis.unhighlight(rootDiv);
 };
 var onClick = function(data) {
   alert("Clicked!");
   console.log(data);
 };
 
-mdsvis.run({
-  el: rootDiv,
+var options = {
   coords: points,
   metadata: metadata,
   layout: {
     width: 1000
   },
   onHover: onHover,
+  onUnhover: onUnhover,
   onClick: onClick
-});
+};
+
+var vis = mdsvis.create(rootDiv, options);
+vis.draw();
