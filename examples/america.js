@@ -31,5 +31,8 @@ mdsvis.run({
     title: 'American cities',
     width: 900,
     height: 600
+  },
+  traceConfig: {
+    marker: {size: 20}
   }
 });
