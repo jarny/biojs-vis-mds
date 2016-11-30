@@ -23,7 +23,9 @@ mdsvis.run({
   el: rootDiv,
   coords: points,
   metadata: metadata,
-  width: 1000,
+  layout: {
+    width: 1000
+  },
   onHover: onHover,
   onClick: onClick
 });

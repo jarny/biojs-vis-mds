@@ -16,7 +16,7 @@ var cityDists = [
 var points = mdsvis.mds(cityDists);
 
 var names = ['Atlanta', 'Chicago', 'Denver', 'Houston', 'Los Angeles',
-             'Miami', 'New York', 'San Francisco', 'Seattle', "Washington, DC"];
+             'Miami', 'New York', 'San Francisco', 'Seattle', 'Washington, DC'];
 
 var metadata = [];
 for (var i=0; i < names.length; i++) {
@@ -27,6 +27,9 @@ mdsvis.run({
   el: rootDiv,
   coords: points,
   metadata: metadata,
-  width: 900,
-  height: 600
+  layout: {
+    title: 'American cities',
+    width: 900,
+    height: 600
+  }
 });
