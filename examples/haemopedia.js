@@ -4,6 +4,15 @@ var distances = [[0.0,2.9077818724,2.5715960803,3.9982529286,4.1073374976,4.0410
 
 var mdsvis = require('biojs-vis-mds');
 
+var onHover = function(data) {
+  var groupNum = data.points[0].curveNumber;
+  mdsvis.highlightGroup(groupNum);
+};
+
+var onUnhover = function(data) {
+    mdsvis.unhighlight();
+}
+
 var points = mdsvis.mds(distances, 4);
 mdsvis.run({
   el: rootDiv,
@@ -14,4 +23,6 @@ mdsvis.run({
     width: 1100,
     height: 600
   },
+  onHover: onHover,
+  onUnhover: onUnhover
 });
