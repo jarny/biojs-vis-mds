@@ -15,13 +15,13 @@
     display: inline-block;
 }
 
-#mdsvis-menubar-left {
+.mdsvis-menubar-left {
     text-align: left;
 }
-#mdsvis-menubar-centre {
+.mdsvis-menubar-centre {
     text-align: center;
 }
-#mdsvis-menubar-right {
+.mdsvis-menubar-right {
     text-align: right;
 }
 
