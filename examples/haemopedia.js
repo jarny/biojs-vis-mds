@@ -7,11 +7,11 @@ var mdsvis = require('biojs-vis-mds');
 
 var onHover = function(data) {
   var groupNum = data.points[0].curveNumber;
-  mdsvis.highlightGroup(rootDiv, groupNum);
+  mdsvis.handlers.highlightGroup(rootDiv, groupNum);
 };
 
 var onUnhover = function(data) {
-    mdsvis.unhighlight(rootDiv);
+    mdsvis.handlers.unhighlight(rootDiv);
 }
 
 var points = mdsvis.mds(distances, 4);
