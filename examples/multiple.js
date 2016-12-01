@@ -1,8 +1,10 @@
 // if you don't specify a html file, the sniper will generate a div with id "rootDiv"
-var mdsvis = require("biojs-vis-mds");
+const mdsvis = require("biojs-vis-mds");
 
 var root1 = document.createElement('div');
 var root2 = document.createElement('div');
+root1.setAttribute('id', 'root1');
+root2.setAttribute('id', 'root2');
 rootDiv.appendChild(root1);
 rootDiv.appendChild(root2);
 
@@ -17,13 +19,21 @@ var metadata = [ {celltype: 'B2', tissue: 'BM'},
                  {celltype: 'Mac', tissue: 'LN'} ];
 
 // define event handlers
-var onHover = function(data) {
+var onHover1 = function(data) {
   var groupNum = data.points[0].curveNumber;
-  mdsvis.callbacks.highlightGroup(rootDiv, groupNum);
+  mdsvis.handlers.highlightGroup(root1, groupNum);
   console.log("hovering!");
 };
-var onUnhover = function(data) {
-  mdsvis.callbacks.unhighlight(rootDiv);
+var onUnhover1 = function(data) {
+  mdsvis.handlers.unhighlight(root1);
+};
+var onHover2 = function(data) {
+  var groupNum = data.points[0].curveNumber;
+  mdsvis.handlers.highlightGroup(root2, groupNum);
+  console.log("hovering!");
+};
+var onUnhover2 = function(data) {
+  mdsvis.handlers.unhighlight(root2);
 };
 var onClick = function(data) {
   alert("Clicked!");
@@ -37,8 +47,8 @@ var options1 = {
     title: 'First plot',
     width: 1000
   },
-  onHover: onHover,
-  onUnhover: onUnhover,
+  onHover: onHover1,
+  onUnhover: onUnhover1,
   onClick: onClick
 };
 
@@ -56,8 +66,8 @@ var options2 = {
   traceConfig: {
     marker: {size: 20}
   },
-  onHover: onHover,
-  onUnhover: onUnhover,
+  onHover: onHover2,
+  onUnhover: onUnhover2,
   onClick: onClick
 };
 
