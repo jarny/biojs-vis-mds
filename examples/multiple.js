@@ -35,10 +35,6 @@ var onHover2 = function(data) {
 var onUnhover2 = function(data) {
   mdsvis.handlers.unhighlight(root2);
 };
-var onClick = function(data) {
-  alert("Clicked!");
-  console.log(data);
-};
 
 var options1 = {
   coords: points,
@@ -48,13 +44,13 @@ var options1 = {
     width: 1000
   },
   onHover: onHover1,
-  onUnhover: onUnhover1,
-  onClick: onClick
+  onUnhover: onUnhover1
 };
 
 var options2 = {
   coords: points,
   metadata: metadata,
+  groupByKey: 'tissue',
   layout: {
     title: 'Second plot',
     hovermode: 'compare',
@@ -66,9 +62,10 @@ var options2 = {
   traceConfig: {
     marker: {size: 20}
   },
+  xDim: 2, yDim: 3,
+  showLabels: true,
   onHover: onHover2,
-  onUnhover: onUnhover2,
-  onClick: onClick
+  onUnhover: onUnhover2
 };
 
 var vis1 = mdsvis.create(root1, options1);
