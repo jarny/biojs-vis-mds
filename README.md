@@ -14,11 +14,12 @@ mds.hello("biojs"); // "hello biojs"
 
 ## Documentation
 
-#### .hello(name)
+### Methods
 
-**Parameter**: `name`
-**Type**: `String`
-**Example**: `biojs`
+#### .create(el, opts)
+
+**Parameter**: `el`
+**Parameter**: `opts`
 
 The 'hello' method is responsible for showing a name.
 
@@ -27,6 +28,11 @@ How to use this method
 ```javascript
 mds.hello('biojs'); // "hello biojs"
 ```
+
+### Visualisation Options
+
+coords, metadata, xDim, yDim, showLabels, groupByKey,
+layout, configOptions, traceConfig, onClick, onHover, onUnhover
 
 ## Contributing
 
