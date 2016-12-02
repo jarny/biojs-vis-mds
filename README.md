@@ -2,45 +2,136 @@
 
 [![NPM version](http://img.shields.io/npm/v/biojs-vis-mds.svg)](https://www.npmjs.org/package/biojs-vis-mds) 
 
-> A multi-dimensional scaling (MDS) visualisation
 
-## Getting Started
+> Visualise multidimensional scaling (MDS) data, two dimensions at a time
+
+Multidimensional scaling (MDS) is an algorithm for generating n-dimensional
+coordinates from distance/similarity data. It was first proposed in the
+following paper:
+
+```
+Torgerson, Warren S. "Multidimensional scaling: I. Theory and method."
+Psychometrika 17, no. 4 (1952): 401-419.
+```
+
+This package uses Plotly.js to generate a simple visualisation for
+multidimensional data. It has been designed with MDS data in mind, though in
+principle it shouldn't matter exactly how you obtain your multidimensional data.
+
+
+## Installation
+
 Install the module with: `npm install biojs-vis-mds`
 
+
+## Example Usage
+
 ```javascript
+var rootDiv = document.createElement('div');
+
 var mds = require('biojs-vis-mds');
-mds.hello("biojs"); // "hello biojs"
+
+// multidimensional coordinates
+var coords = [ [0,1,2,3],
+               [3,2,4,1],
+               [2,3,1,2],
+               [0,0,3,7]];
+
+var vis = mdsvis.create(rootDiv, coords);
+vis.draw();
 ```
+
 
 ## Documentation
 
 ### Methods
 
-#### .create(el, opts)
+#### .create(el, coords, opts)
 
-**Parameter**: `el`
-**Parameter**: `opts`
+Create a new visualisation instance, contained in the DOM element `el`,
+populated by the multidimensional coordinates `coords`, and configured by
+options `opts` (see below for option details).
 
-The 'hello' method is responsible for showing a name.
-
-How to use this method
-
-```javascript
-mds.hello('biojs'); // "hello biojs"
-```
+`coords` should be an array of multidimensional coordinates (assumed to be in
+the same format as that produced by the `biojs-algo-mds` NPM package).
 
 ### Visualisation Options
 
-coords, metadata, xDim, yDim, showLabels, groupByKey,
-layout, configOptions, traceConfig, onClick, onHover, onUnhover
+#### metadata
+
+An array of metadata objects corresponding to the provided coordinates.
+Used to "annotate" the coordinates.
+
+For example, suppose `coords === [[1,0,0],[0,1,0],[0,0,1]]`; then `metadata`
+might be
+
+    [{name: 'X', type: 'foo'},
+     {name: 'Y', type: 'bar'},
+     {name: 'Z', type: 'foo'}]
+     
+These objects should be homogeneous. The metadata values can be used for
+grouping the data.
+
+#### xDim, yDim
+
+Which dimensions should initially be visualised. Defaults to xDim = 1, yDim = 2.
+
+#### showLabels
+
+Whether data labels should initially be shown. Defaults to `false`.
+
+#### groupByKey
+
+Which metadata key to group by initially. Will be ignored if no metadata is
+supplied. If metadata is supplied, will default to the property with the lowest
+lexicographic sort value (in the example above, `name`).
+
+#### layout, configOptions, traceConfig
+
+Plotly configuration objects. See
+
+https://plot.ly/javascript/reference/#layout
+https://github.com/plotly/plotly.js/blob/master/src/plot_api/plot_config.js
+https://plot.ly/javascript/reference/#scatter
+
+respectively. Note that data-dependent trace configuration (properties such as
+`x`, `y` and `name`) should not be set here.
+
+#### onClick, onHover, onUnhover
+
+Handlers for Plotly events. See below for some 'helper' handlers.
+
+### MDSVis Class
+
+The MDSVis class represents the visualisation. It has several methods, but
+the only one you should really need to call explicitly is draw:
+
+#### .draw()
+
+Generate the actual visualisation. Prior to calling this function, the instance
+will be constructed but nothing will have been added to the DOM.
+
+### Event Handlers
+
+Some handlers are provided for some basic plot events, such as highlighting
+a group of data. If you wish to add your own handlers and aren't familiar with
+Plotly, copying the implementation of these handlers is a good place to start.
+
+#### .handlers.hoverGroup
+#### .handlers.highlightGroup
+#### .handlers.unhighlight
+
 
 ## Contributing
 
 All contributions are welcome.
 
+
 ## Support
 
-If you have any problem or suggestion please open an issue [here](https://github.com/yoshw/biojs-vis-mds/issues).
+If you have any problem or suggestion please open an issue
+[here](https://github.com/yoshw/biojs-vis-mds/issues).
+
 
 ## License 
 
