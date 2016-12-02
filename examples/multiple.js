@@ -1,4 +1,3 @@
-// if you don't specify a html file, the sniper will generate a div with id "rootDiv"
 const mdsvis = require("biojs-vis-mds");
 
 var root1 = document.createElement('div');
@@ -12,7 +11,7 @@ rootDiv.appendChild(root2);
 var coords = [ [0,1,2,3],
                [3,2,4,1],
                [2,3,1,2],
-               [0,0,3,7]];
+               [0,0,3,7] ];
 var metadata = [ {celltype: 'B2', tissue: 'BM'},
                  {celltype: 'Mac', tissue: 'BM'},
                  {celltype: 'B2', tissue: 'LN'},
@@ -22,7 +21,6 @@ var metadata = [ {celltype: 'B2', tissue: 'BM'},
 var onHover1 = function(data) {
   var groupNum = data.points[0].curveNumber;
   mdsvis.handlers.highlightGroup(root1, groupNum);
-  console.log("hovering!");
 };
 var onUnhover1 = function(data) {
   mdsvis.handlers.unhighlight(root1);
@@ -30,7 +28,6 @@ var onUnhover1 = function(data) {
 var onHover2 = function(data) {
   var groupNum = data.points[0].curveNumber;
   mdsvis.handlers.highlightGroup(root2, groupNum);
-  console.log("hovering!");
 };
 var onUnhover2 = function(data) {
   mdsvis.handlers.unhighlight(root2);

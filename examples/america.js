@@ -1,4 +1,3 @@
-// if you don't specify a html file, the sniper will generate a div with id "rootDiv"
 // const mds = require('biojs-algo-mds');
 const mdsvis = require('biojs-vis-mds');
 

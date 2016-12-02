@@ -14,6 +14,9 @@ var onHover = function(data) {
 var onUnhover = function(data) {
     mdsvis.handlers.unhighlight(rootDiv);
 }
+var onClick = function(data) {
+  alert("Clicked: " + data.points[0].data.text);
+};
 
 var options = {
   metadata: metadata,
@@ -22,6 +25,7 @@ var options = {
     width: 1100,
     height: 600
   },
+  onClick: onClick,
   onHover: onHover,
   onUnhover: onUnhover
 };
