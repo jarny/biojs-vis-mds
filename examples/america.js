@@ -14,7 +14,7 @@ var cityDists = [
   [2182, 1737, 1021, 1891, 959, 2734, 2408, 678, 0, 2329],
   [543, 597, 1494, 1220, 2300, 923, 205, 2442, 2329, 0]];
 
-var points = mdsvis.mds(cityDists);
+var coords = mdsvis.mds(cityDists);
 
 var names = ['Atlanta', 'Chicago', 'Denver', 'Houston', 'Los Angeles',
              'Miami', 'New York', 'San Francisco', 'Seattle', 'Washington, DC'];
@@ -24,8 +24,7 @@ for (var i=0; i < names.length; i++) {
   metadata.push({name: names[i]});
 }
 
-var vis = mdsvis.create(rootDiv, {
-  coords: points,
+var options = {
   metadata: metadata,
   layout: {
     title: 'American cities',
@@ -35,6 +34,8 @@ var vis = mdsvis.create(rootDiv, {
   traceConfig: {
     marker: {size: 20}
   }
-});
+};
+
+var vis = mdsvis.create(rootDiv, coords, options);
 
 vis.draw();

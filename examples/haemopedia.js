@@ -5,18 +5,17 @@ var distances = [[0.0,2.9077818724,2.5715960803,3.9982529286,4.1073374976,4.0410
 //var mds = require('biojs-algo-mds');
 var mdsvis = require('biojs-vis-mds');
 
+var coords = mdsvis.mds(distances, 4);
+
 var onHover = function(data) {
   var groupNum = data.points[0].curveNumber;
   mdsvis.handlers.highlightGroup(rootDiv, groupNum);
 };
-
 var onUnhover = function(data) {
     mdsvis.handlers.unhighlight(rootDiv);
 }
 
-var points = mdsvis.mds(distances, 4);
-var vis = mdsvis.create(rootDiv, {
-  coords: points,
+var options = {
   metadata: metadata,
   layout: {
     title: 'Dataset: Haemopedia',
@@ -25,6 +24,8 @@ var vis = mdsvis.create(rootDiv, {
   },
   onHover: onHover,
   onUnhover: onUnhover
-});
+};
+
+var vis = mdsvis.create(rootDiv, coords, options);
 
 vis.draw();

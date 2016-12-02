@@ -1,6 +1,6 @@
 // if you don't specify a html file, the sniper will generate a div with id "rootDiv"
 var mdsvis = require("biojs-vis-mds");
-var points = [ [0,1,2,3],
+var coords = [ [0,1,2,3],
                [3,2,4,1],
                [2,3,1,2],
                [0,0,3,7]];
@@ -23,7 +23,6 @@ var onClick = function(data) {
 };
 
 var options = {
-  coords: points,
   metadata: metadata,
   layout: {
     width: 1000
@@ -33,5 +32,5 @@ var options = {
   onClick: onClick
 };
 
-var vis = mdsvis.create(rootDiv, options);
+var vis = mdsvis.create(rootDiv, coords, options);
 vis.draw();

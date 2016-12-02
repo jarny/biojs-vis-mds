@@ -9,7 +9,7 @@ rootDiv.appendChild(root1);
 rootDiv.appendChild(root2);
 
 // data
-var points = [ [0,1,2,3],
+var coords = [ [0,1,2,3],
                [3,2,4,1],
                [2,3,1,2],
                [0,0,3,7]];
@@ -37,7 +37,6 @@ var onUnhover2 = function(data) {
 };
 
 var options1 = {
-  coords: points,
   metadata: metadata,
   layout: {
     title: 'First plot',
@@ -48,7 +47,6 @@ var options1 = {
 };
 
 var options2 = {
-  coords: points,
   metadata: metadata,
   groupByKey: 'tissue',
   layout: {
@@ -68,7 +66,7 @@ var options2 = {
   onUnhover: onUnhover2
 };
 
-var vis1 = mdsvis.create(root1, options1);
-var vis2 = mdsvis.create(root2, options2);
+var vis1 = mdsvis.create(root1, coords, options1);
+var vis2 = mdsvis.create(root2, coords, options2);
 vis1.draw();
 vis2.draw();
