@@ -62,15 +62,16 @@ the same format as that produced by the `biojs-algo-mds` NPM package).
 An array of metadata objects corresponding to the provided coordinates.
 Used to "annotate" the coordinates.
 
-For example, suppose `coords === [[1,0,0],[0,1,0],[0,0,1]]`; then `metadata`
+For example, suppose `coords` is `[[1,0,0],[0,1,0],[0,0,1]]`; then `metadata`
 might be
 
     [{name: 'X', type: 'foo'},
      {name: 'Y', type: 'bar'},
      {name: 'Z', type: 'foo'}]
      
-These objects should be homogeneous. The metadata values can be used for
-grouping the data.
+These objects should be homogeneous, since the metadata values can be used for
+grouping the data and if grouping on a key which some data points don't have,
+the plot behaviour is undefined.
 
 #### xDim, yDim
 
@@ -91,7 +92,9 @@ lexicographic sort value (in the example above, `name`).
 Plotly configuration objects. See
 
 https://plot.ly/javascript/reference/#layout
+
 https://github.com/plotly/plotly.js/blob/master/src/plot_api/plot_config.js
+
 https://plot.ly/javascript/reference/#scatter
 
 respectively. Note that data-dependent trace configuration (properties such as
@@ -109,13 +112,16 @@ the only one you should really need to call explicitly is draw:
 #### .draw()
 
 Generate the actual visualisation. Prior to calling this function, the instance
-will be constructed but nothing will have been added to the DOM.
+will be initialised but nothing will have been added to the DOM. Thus you
+could store MDS visualisations in a data structure until such time as you need
+to `draw` them.
 
 ### Event Handlers
 
-Some handlers are provided for some basic plot events, such as highlighting
-a group of data. If you wish to add your own handlers and aren't familiar with
-Plotly, copying the implementation of these handlers is a good place to start.
+Handlers which execute some basic plot events, such as highlighting
+a group of data. See the examples for how exactly these should be used.
+If you wish to add your own handlers and aren't familiar with Plotly, copying
+the implementation of these handlers is a good place to start.
 
 #### .handlers.hoverGroup
 #### .handlers.highlightGroup
