@@ -52,8 +52,7 @@ Create a new visualisation instance, contained in the DOM element `el`,
 populated by the multidimensional coordinates `coords`, and configured by
 options `opts` (see below for option details).
 
-`coords` should be an array of multidimensional coordinates (assumed to be in
-the same format as that produced by the `biojs-algo-mds` NPM package).
+`coords` should be an array of multidimensional coordinates.
 
 ### Visualisation Options
 

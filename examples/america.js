@@ -1,4 +1,3 @@
-// const mds = require('biojs-algo-mds');
 const mdsvis = require('biojs-vis-mds');
 
 var cityDists = [
